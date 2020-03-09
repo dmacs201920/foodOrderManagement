@@ -1,0 +1,35 @@
+                               
+			       * * * * * * * * * * * * * * * * * *
+                                  VEGETERIAN MENU        
+                               * * * * * * * * * * * * * * * * * *
+
+  1. Burger                    140\- 
+  2. Noodles                   160\-
+  3. Sandwich                  150\-
+  4. Panner Manchurian         220\-
+  5. Mushroom Manchurian       200\-
+  6. Babycorn Manchurian       230\-
+  7. Vegetable Manchurian      180\-
+  8. Methichaman(special)      210\-
+  9. Andhra Panner Biriyani    500\-
+ 10. Mushroom Biriyani         450\-
+ 11. Mixed Veg.Biriyani        550\-
+ 12. Salads                    100\-
+ 13. Icecream                  120\-
+ 14. Bevarages                  50\-
+ 15. South indian Thaali       200\-  
+    -->Dal
+    -->Chapati
+    -->Veg generic
+    -->Rice
+    -->Papad
+    -->Pickle
+    -->Rasam
+    -->Curd
+ 16. North indian Thaali       250\-
+    -->Roti
+    -->Panner
+    -->Noodles
+    -->Samosa
+    -->Chole Batura
+    -->Butter Milk
