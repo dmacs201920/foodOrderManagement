@@ -8,51 +8,53 @@
 #include"header.h"
 int s;
 char findrecord;
-double total=0;
-struct customer c;
+struct customer c,cust;
 int id=0;
-node *o=NULL;
 FILE *temp1,*temp2;
+item i;
+double total=0;
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------
+
+
+
+void initialize(void)
+{
+    for(int i=0;i<32;i++)
+    {
+	c.order[i].flag=0;
+	c.order[i].quantity=0;
+	c.order[i].cost=0;
+    }
+}
+
+
 
 
 //-------------------------------------------------------------------------------------------------
 
 
 
-node* create_node(char *i,int q,int c)
+/*
+int getid(int id)
 {
-    node*temp;
-    temp=(node*)malloc(sizeof(node));
-    if(temp==NULL)
+    struct customer t;
+    FILE *temp=fopen("order,txt","r");
+    while(fread(&t,sizeof(t),1,temp)==1)
     {
-	printf("...ERROR... :( ");
-	exit(-1);
+	if(t.id==id)
+	{
+	    id=id+1000;
+	    return id;
+	}
     }
-    else
-    {
-	temp->i=i;
-	temp->q=q;
-	temp->cost=c;
-	temp->next=NULL;
-    }
-    return temp;
+	return id;
 }
-
-//-------------------------------------------------------------------------------------------------
-
-
-
-
-node* insert_at_begin(node* head,char *i,int q, int c)
-{
-    node*t;
-    t=create_node(i,q,c);
-    t->next=head;
-    head=t;
-    return head;
-}
-
-
+*/
 //-------------------------------------------------------------------------------------------------
 
 
@@ -81,7 +83,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 140*(quantity);
 	char a[30]="Burger                ";
-	o=insert_at_begin(o,a,quantity,140);
+	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+(140*quantity);
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=140*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("\n");
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
@@ -104,7 +117,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 160*(quantity);
 	char a[30]="Noodles               ";
-	o=insert_at_begin(o,a,quantity,160);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+160*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=160*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -125,7 +149,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 150*(quantity);
 	char a[30]="Sandwich              ";
-	o=insert_at_begin(o,a,quantity,150);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+150*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=150*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -146,7 +181,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 220*(quantity);
 	char a[30]="Panner Munchurian     ";
-	o=insert_at_begin(o,a,quantity,220);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+220*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=220*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -167,7 +213,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 200*(quantity);
 	char a[30]="Mushroom  Munchurian  ";
-	o=insert_at_begin(o,a,quantity,200);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=200*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -190,7 +247,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 230*(quantity);
 	char a[30]="Babycorn  Munchurian  ";
-	o=insert_at_begin(o,a,quantity,230);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+230*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=230*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("\n");
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
@@ -213,7 +281,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 180*(quantity);
 	char a[30]="Vegetable  Munchurian ";
-	o=insert_at_begin(o,a,quantity,180);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+180*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=180*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -234,7 +313,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 210*(quantity);
 	char a[30]="Methichaman (special) ";
-	o=insert_at_begin(o,a,quantity,210);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+210*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=210*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -255,7 +345,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 500*(quantity);
 	char a[30]="Andhra Panner Biriyani";
-	o=insert_at_begin(o,a,quantity,500);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+500*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=500*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -276,7 +377,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 450*(quantity);
 	char a[30]="Mushroom  Biriyani    ";
-	o=insert_at_begin(o,a,quantity,450);
+	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+450*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=450*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -299,7 +411,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 550*(quantity);
 	char a[30]="Mixed  Veg  Biriyani  ";
-	o=insert_at_begin(o,a,quantity,550);
+       	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+550*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=550*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -322,8 +445,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 100*(quantity);
 	char a[30]="Salads                ";
-	o=insert_at_begin(o,a,quantity,100);
-	printf("\n");
+	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+100*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=100*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	printf("\n");
@@ -345,7 +478,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 120*(quantity);
 	char a[30]="Ice  Cream            ";
-	o=insert_at_begin(o,a,quantity,120);
+	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+120*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=120*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -366,7 +510,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 50*(quantity);
 	char a[30]="Bervareges             ";
-	o=insert_at_begin(o,a,quantity,50);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+50*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=50*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -387,7 +542,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 200*(quantity);
 	char a[30]="South Indian Thaali   ";
-	o=insert_at_begin(o,a,quantity,200);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=200*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -408,7 +574,18 @@ void vegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 250*(quantity);
 	char a[30]="North Indian Thaali   ";
-	o=insert_at_begin(o,a,quantity,250);
+ 	if(c.order[choice-1].flag==1)
+	{
+	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+	    c.order[choice-1].cost=c.order[choice-1].cost+250*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice-1].item_name,a);
+	    c.order[choice-1].quantity=quantity;
+	    c.order[choice-1].cost=250*quantity;
+	    c.order[choice-1].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -448,13 +625,11 @@ void vegetarian(void)
 
 
 
-
-
 void nonvegetarian(void)
 { 
 
 
-    int choice;
+    int  choice;
     int again;
     int quantity;
     double price=0;
@@ -470,7 +645,7 @@ void nonvegetarian(void)
     printf("\n\nEnter What You Want :");
     printf("\n\n");
     scanf("%d",&choice);
-
+//    initialize();
 
     if(choice==1)
     {
@@ -478,7 +653,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 220*(quantity);
 	char a[30]="Chilli  Chicken       ";
-	o=insert_at_begin(o,a,quantity,220);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+220*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=220*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -501,9 +687,20 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 250*(quantity);
 	char a[30]="Chicken  Lolipop      ";
-	o=insert_at_begin(o,a,quantity,250);
-	printf("\n");
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+250*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=250*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+
 	scanf("%d",&again);
 	printf("\n");
 	if(again==1)
@@ -524,7 +721,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 180*(quantity);
 	char a[30]="Chicken  Munchurian   ";
-	o=insert_at_begin(o,a,quantity,180);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+180*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=180*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -545,7 +753,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 50*(quantity);
 	char a[30]="Omlet                 ";
-	o=insert_at_begin(o,a,quantity,50);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=50*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -566,7 +785,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 150*(quantity);
 	char a[30]="Egg  Fried  Rice      ";
-	o=insert_at_begin(o,a,quantity,150);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=150*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -587,7 +817,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 200*(quantity);
 	char a[30]="Chicken  Fried  Rice  ";
-	o=insert_at_begin(o,a,quantity,200);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=200*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -611,7 +852,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 350*(quantity);
 	char a[30]="Prawns  Biriyani      ";
-	o=insert_at_begin(o,a,quantity,350);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=350*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -634,7 +886,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 450*(quantity);
 	char a[30]="Chicken Moghalai Biriyani";
-	o=insert_at_begin(o,a,quantity,450);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+450*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=450*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("\n");
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
@@ -657,7 +920,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 500*(quantity);
 	char a[30]="Mixed Moghalai Biriyani";
-	o=insert_at_begin(o,a,quantity,500);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+500*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=500*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -678,7 +952,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 400*(quantity);
 	char a[30]="Fish  Biriyani        ";
-	o=insert_at_begin(o,a,quantity,400);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+400*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=400*quantity;
+	    c.order[choice+15].flag=1;
+	}       
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -699,7 +984,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 150*(quantity);
 	char a[30]="Dry  Chicken          ";
-	o=insert_at_begin(o,a,quantity,150);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=150*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -720,7 +1016,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 200*(quantity);
 	char a[30]="Gravy  Chicken        ";
-	o=insert_at_begin(o,a,quantity,200);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=200*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -736,14 +1043,24 @@ void nonvegetarian(void)
 	}
 
     }
-
     else if(choice==13)
     {
 	printf("Quantity :");
 	scanf("%d",&quantity);
 	total=total + 110*(quantity);
 	char a[30]="Chicken  Biriyani     ";
-	o=insert_at_begin(o,a,quantity,110);
+  	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+110*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=110*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -759,15 +1076,24 @@ void nonvegetarian(void)
 	}
 
     }
-
     else if(choice==14)
     {
 	printf("Quantity :  ");
 	scanf("%d",&quantity);
 	total=total + 50*(quantity);
 	char a[30]="Beverages             ";
-	o=insert_at_begin(o,a,quantity,50);
-	printf("\n");
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=50*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	printf("\n");
@@ -789,7 +1115,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 100*(quantity);
 	char a[30]="Ice Cream             ";
-	o=insert_at_begin(o,a,quantity,100);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+100*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=100*quantity;
+	    c.order[choice+15].flag=1;
+	} 
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -810,7 +1147,18 @@ void nonvegetarian(void)
 	scanf("%d",&quantity);
 	total=total + 350*(quantity);
 	char a[30]="Indian  Thaali        ";
-	o=insert_at_begin(o,a,quantity,350);
+ 	if(c.order[choice+15].flag==1)
+	{
+	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+	    c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
+	}
+	else
+	{
+	    strcpy(c.order[choice+15].item_name,a);
+	    c.order[choice+15].quantity=quantity;
+	    c.order[choice+15].cost=350*quantity;
+	    c.order[choice+15].flag=1;
+	}
 	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
 	scanf("%d",&again);
 	if(again==1)
@@ -825,8 +1173,6 @@ void nonvegetarian(void)
 	    details(total);
 	}
     }
-
-
     else if(choice==17)
     {
 	system("clear");
@@ -841,18 +1187,6 @@ void nonvegetarian(void)
 
 
 
-void display(node* head)
-{
-    node*t=head;
-	    printf("| Items\t\t\t\t\t\t\tQuantity\t\t\t\t\tCost\n");
-    while(t!=NULL)
-    {
-	printf("| %s\t\t\t\t\tX%d\t\t\t\t\t%d\t\n",t->i,t->q,t->cost*t->q);
-	t=t->next;
-    }
-	    printf("| TOTAL                                                                                                :  %lf \n",c.bill);
-	    printf("=======================================================================================================================================================================\n");
-}
 
 
 //-------------------------------------------------------------------------------------------------
@@ -860,40 +1194,44 @@ void display(node* head)
 
 
 
+
+
 void details(double tf)
 {
-    //  char status[10]="placed";
+    cust=c;
+    char temp[32];
+    total=0;
+    initialize();
     system("clear");
     id++;
     time_t T= time(NULL);
     struct  tm *t = localtime(&T);
     printf("Please Give Your Contact Details \n");
     printf(" First Name : ");
-    scanf("%s",c.name);
+    scanf("%s",cust.name);
     printf(" Last Name  : ");
-    scanf("%s",c.name2);
+    scanf("%s",cust.name2);
     printf(" Phone      : ");
-    scanf("%lld",&c.ph);
+    scanf("%lld",&cust.ph);
     printf(" Address    : ");
-    scanf("%s",c.address);
+    scanf("%s",cust.address);
     printf(" Landmark   : ");
-    scanf("%s",c.landmark);
+    scanf("%s",cust.landmark);
     printf("\n\n");
-    //    c.status=status;
-    c.id=id+t->tm_hour+t->tm_min+t->tm_sec;
-    c.bill=tf;
-    c.dd=t->tm_mday;
-    c.mm=t->tm_mon+1;
-    c.yyyy=t->tm_year+1900;
-    c.h=t->tm_hour;
-    c.m=t->tm_min;
-    c.s=t->tm_sec;
-    c.items=o;
+    cust.id=id+t->tm_hour+t->tm_min+t->tm_sec;
+    //cust.id=getid(cust.id);
+    cust.total=tf;
+    cust.dd=t->tm_mday;
+    cust.mm=t->tm_mon+1;
+    cust.yyyy=t->tm_year+1900;
+    cust.h=t->tm_hour;
+    cust.m=t->tm_min;
+    cust.s=t->tm_sec;
     printf("PLEASE NOTE DOWN YOUR ORDER ID ...\n\n	");
-    printf("YOUR ORDER ID IS : \t\t  %d \t\t\n\n ",c.id);
+    printf("YOUR ORDER ID IS : \t\t  %d \t\t\n\n ",cust.id);
     printf(" Your Entered Details Are --->\n");
 
-    printf("    -->Total       :  %lf\n\n    -->First Name  :  %s\n\n    -->Last Name   :  %s\n\n    -->Phone       :  %lld\n\n    -->Address     :  %s\n\n    -->Landmark    :  %s\n\n",c.bill,c.name,c.name2,c.ph,c.address,c.landmark);
+    printf("    -->Total       :  %lf\n\n    -->First Name  :  %s\n\n    -->Last Name   :  %s\n\n    -->Phone       :  %lld\n\n    -->Address     :  %s\n\n    -->Landmark    :  %s\n\n",cust.total,cust.name,cust.name2,cust.ph,cust.address,cust.landmark);
     //printf("Date is: %d/%d/%d\n",t->tm_mday, t->tm_mon+1, t->tm_year+1900);
     //printf("Time is: %d:%d:%d\n",t->tm_hour, t->tm_min, t->tm_sec);
     printf("\n\n\n");
@@ -902,17 +1240,15 @@ void details(double tf)
     printf("                                                       .....HAPPY ORDERING.....\n");
     printf("                       *********************************************************************************************\n");
 
-    FILE *cust;
-    cust = fopen("order.txt","a");
-    fwrite(&c,sizeof(c),1,cust);
-    fclose(cust);
+    FILE *fcust;
+    fcust = fopen("order.txt","a");
+    fwrite(&cust,sizeof(cust),1,fcust);
+    fclose(fcust);
     printf("Press Any To The MainMenu.");
-    o=NULL;
     getchar();
     if(getchar())
 	customer();
 }
-
 
 
 
@@ -1002,47 +1338,62 @@ void deleteorder(void)
 //-------------------------------------------------------------------------------------------------
 
 
-void viewdetails(void)
+int viewdetails(void)
 {
     int oid;
+    struct customer ctemp;
     system("clear");
     printf("Please enter your order id:");
     scanf("%d",&oid);
     FILE *view;
     view=fopen("order.txt","r");
-    char viw;
-    while(fread(&c,sizeof(c),1,view)==1)
+    if(view==NULL)
     {
-	if(c.id==oid)
+	printf("\t\t\t..................NO ORDERS ENTERED....................\n");
+	printf("\t press ENTER to go back ...");
+	getchar();
+	getchar();
+    }
+    else
+    {
+	char viw;
+	while(fread(&ctemp,sizeof(ctemp),1,view)==1)
 	{
-	    printf("                       ======================================================================================                 \n");
-	    printf("                       ||           ********************** Order  Details**********************            ||                 \n");
-	    printf("                       ======================================================================================                 \n");
-	    printf("\n\n\n");
-	    printf(" YOUR ORDERS ARE...-->\n\n\n");
-	    printf("=======================================================================================================================================================================\n");
-	    printf("| NAME          :  %s %s \t\t\t\t\t\t\t\t\t\t\t\t\t",c.name,c.name2);
-	    printf("| ORDER ID      :  %d    \n",c.id);
-	    printf("| ADDRESS       :  %s    \t\t\t\t\t\t\t\t\t\t\t\t\t",c.address);
-	    printf("| LANDMARK      :  %s    \n",c.landmark);
-	    printf("| PHONE NUMBER  :  %lld  \n",c.ph);
-	    printf("| TIME          :  %d:%d:%d \t\t\t\t\t\t\t\t\t\t\t\t\t",c.h,c.m,c.s);
-	    printf("| DATE          :  %d/%d/%d \n",c.dd,c.mm,c.yyyy);
-	    display(c.items);
-	    printf("\n\n\n");
-	    goto e;
+	    if(ctemp.id==oid)
+	    {
+
+		printf("                       ======================================================================================                 \n");
+		printf("                       ||           ********************** Order  Details**********************            ||                 \n");
+		printf("                       ======================================================================================                 \n");
+		printf("\n\n\n");
+		printf(" YOUR ORDERS ARE...-->\n\n\n");
+		printf("=======================================================================================================================================================================\n");
+		printf("| NAME          :  %s %s \t\t\t\t\t\t\t\t\t\t\t\t\t",ctemp.name,ctemp.name2);
+		printf("| ORDER ID      :  %d    \n",ctemp.id);
+		printf("| ADDRESS       :  %s    \t\t\t\t\t\t\t\t\t\t\t\t\t",ctemp.address);
+		printf("| LANDMARK      :  %s    \n",ctemp.landmark);
+		printf("| PHONE NUMBER  :  %lld  \n",ctemp.ph);
+		printf("| TIME          :  %d:%d:%d \t\t\t\t\t\t\t\t\t\t\t\t\t",ctemp.h,ctemp.m,ctemp.s);
+		printf("| DATE          :  %d/%d/%d \n\n\n",ctemp.dd,ctemp.mm,ctemp.yyyy);
+		printf("| Items\t\t\t\t\t\t\t\tQuantity\t\t\t\tCost\n");
+		for(int j=0;j<32;j++)
+		{
+		    if(ctemp.order[j].flag==1)
+			printf("| %s \t\t\t\t\t X%d \t\t\t\t\t %f \t\n",ctemp.order[j].item_name,ctemp.order[j].quantity,ctemp.order[j].cost);
+		}
+		printf("\n\n| TOTAL                                                                                                 :  %lf \n",ctemp.total);
+		printf("=======================================================================================================================================================================\n");
+		printf("\n\n\n");
+		printf("\n\n\n...press ENTER to continue...\n");
+		getchar();
+		getchar();
+		return 1;
+	    }
 	}
     }
-	    printf("                       ======================================================================================                 \n");
-    	    printf("                       ||                           ....NO RECORD FOUND....                                ||		  \n");
-	    printf("                       ======================================================================================                 \n");
-e:    fclose(view);
-    getchar();
-    printf("\n\n\n...press ENTER to continue...\n");
-      getchar();
-      order();
+    fclose(view);
+    return 0;
 }
-
 
 
 //-------------------------------------------------------------------------------------------------

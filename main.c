@@ -8,6 +8,9 @@
 #include"header.h"
 void main()
 {
+    FILE *f=stdin;
+    ssize_t nchr = 0;
+    char pw[35] = {0},*p = pw;
     while(1)
     {   
 	system("clear");
@@ -22,11 +25,14 @@ void main()
 	scanf("%c",&choice);
 	switch(choice)
 	{
-
 	    case'1':
-		if(Password()==1)
+		system("clear");
+		printf("PLEASE ENTER THE PASSWORD :  ");
+		getchar();
+		nchr = getpasswd (&p,35,' ', f);
+		if(Password(p)==1)
 		{
-		    getchar();
+		   // getchar();
 		    printf("\n\n");
 		    administration();
 		}
@@ -149,7 +155,7 @@ void customer(void)
 
 void order(void)
 {
-
+    int view;
     system("clear");
     printf("                    ************************************************\n                                      WELCOME\n                    ************************************************\n\n");
     printf("               YOU WANT TO--->\n\n               1. Place order\n\n               2. Cancel order\n\n               3. View Order Details\n\n	       4. Back To Main Menu\n\n   Enter Your Choice  -->");
@@ -177,7 +183,17 @@ void order(void)
     {
 	printf("\n\n");
 	system("clear");
-	viewdetails();
+	view=viewdetails();
+	if(view==0)
+	{
+	    printf("                       ======================================================================================                 \n");
+	    printf("                       ||                           ....NO RECORD FOUND....                                ||		  \n");
+	    printf("                       ======================================================================================                 \n");
+	    printf("\n\n\n...press ENTER to continue...\n");
+	    getchar();
+	    getchar();
+	}
+	    order();
     }
     else if(k=='4')
     {

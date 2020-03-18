@@ -15,18 +15,84 @@ int t;
 
 
 
+//-------------------------------------------------------------------------------------------------
 
+
+
+ssize_t getpasswd (char **pw, size_t sz, int mask, FILE *fp)
+{
+    if (!pw || !sz || !fp) return -1;       /* validate input   */
+#ifdef MAXPW
+    if (sz > MAXPW) sz = MAXPW;
+#endif
+
+    if (*pw == NULL) {              /* reallocate if no address */
+	void *tmp = realloc (*pw, sz * sizeof **pw);
+	if (!tmp)
+	    return -1;
+	memset (tmp, 0, sz);    /* initialize memory to 0   */
+	*pw =  (char*) tmp;
+    }
+
+    size_t idx = 0;         /* index, number of chars in read   */
+    int c = 0;
+
+    struct termios old_kbd_mode;    /* orig keyboard settings   */
+    struct termios new_kbd_mode;
+
+    if (tcgetattr (0, &old_kbd_mode)) { /* save orig settings   */
+	fprintf (stderr, "%s() error: tcgetattr failed.\n", __func__);
+	return -1;
+    }   /* copy old to new */
+    memcpy (&new_kbd_mode, &old_kbd_mode, sizeof(struct termios));
+
+    new_kbd_mode.c_lflag &= ~(ICANON | ECHO);  /* new kbd flags */
+    new_kbd_mode.c_cc[VTIME] = 0;
+    new_kbd_mode.c_cc[VMIN] = 1;
+    if (tcsetattr (0, TCSANOW, &new_kbd_mode)) {
+	fprintf (stderr, "%s() error: tcsetattr failed.\n", __func__);
+	return -1;
+    }
+
+    /* read chars from fp, mask if valid char specified */
+    while (((c = fgetc (fp)) != '\n' && c != EOF && idx < sz - 1) ||
+	    (idx == sz - 1 && c == 127))
+    {
+	if (c != 127) {
+	    if (31 < mask && mask < 127)    /* valid ascii char */
+		fputc (mask, stdout);
+	    (*pw)[idx++] = c;
+	}
+	else if (idx > 0) {         /* handle backspace (del)   */
+	    if (31 < mask && mask < 127) {
+		fputc (0x8, stdout);
+		fputc (' ', stdout);
+		fputc (0x8, stdout);
+	    }
+	    (*pw)[--idx] = 0;
+	}
+    }
+    (*pw)[idx] = 0; /* null-terminate   */
+
+    /* reset original keyboard  */
+    if (tcsetattr (0, TCSANOW, &old_kbd_mode)) {
+	fprintf (stderr, "%s() error: tcsetattr failed.\n", __func__);
+	return -1;
+    }
+
+    if (idx == sz - 1 && c != '\n') /* warn if pw truncated */
+	fprintf (stderr, " (%s() warning: truncated at %zu chars.)\n",
+		__func__, sz - 1);
+
+    return idx; /* number of chars in passwd    */
+}
 
 
 //-------------------------------------------------------------------------------------------------
 
-int Password()
+int Password(char passw[])
 {
     char password[15]="maharshi...";
-    char passw[15];
-    system("clear");
-    printf("PLEASE ENTER THE PASSWORD");
-    scanf("%s",passw);
     if(strcmp(password,passw)==0)
     {
 	printf("PASSWORD MATCHED...!");
@@ -35,10 +101,9 @@ int Password()
     else
     {
 	printf("OOPS... WRONG PASSWORD");
-	Password();
+//	Password(passw);
     }
 }
-
 
 
 
@@ -381,11 +446,8 @@ void returnfunc(void)
 	getchar();
 	printf(" Press ENTER to return to main menu");
     }
-e:
-    if(getchar()=='\n') //allow only use of enter
+    if(getchar()) //allow only use of enter
 	administration();
-    else
-	goto e;
 }
 
 
@@ -401,27 +463,33 @@ void orderstoday(void)
 {
     system("clear");
     fc=fopen("order.txt","r");
-    printf("                       ======================================================================================                 \n");
-    printf("                       ||           ********************** Order Details **********************            ||                 \n");
-    printf("                       ======================================================================================                 \n");
-    printf("\n\n\n");
-
-    while(fread(&cust,sizeof(cust),1,fc)==1)
+    if(fc==NULL)
     {
-	printf("===============================================\n");
-	printf("| ORDER ID         :  %d \n",cust.id);
-	printf("| NAME             :  %s \n",cust.name);
-	printf("| TOTAL            :  %lf \n",cust.bill);
-	printf("| TIME             :  %d:%d:%d\n",cust.h,cust.m,cust.s);
-	printf("| DATE OF ORDER    :  %d/%d/%d \n",cust.dd,cust.mm,cust.yyyy);
-	printf("| ADDRESS          :  %s \n",cust.address);
-	printf("| LANDMARK         :  %s \n",cust.landmark);
-	printf("===============================================\n");
+	printf("\t\t\t..................NO ORDERS ENTERED....................\n");
+    }
+    else
+    {
+	printf("                       ======================================================================================                 \n");
+	printf("                       ||           ********************** Order Details **********************            ||                 \n");
+	printf("                       ======================================================================================                 \n");
 	printf("\n\n\n");
 
-    }
+	while(fread(&cust,sizeof(cust),1,fc)==1)
+	{
+	    printf("===============================================\n");
+	    printf("| ORDER ID         :  %d \n",cust.id);
+	    printf("| NAME             :  %s \n",cust.name);
+	    printf("| TOTAL            :  %lf \n",cust.total);
+	    printf("| TIME             :  %d:%d:%d\n",cust.h,cust.m,cust.s);
+	    printf("| DATE OF ORDER    :  %d/%d/%d \n",cust.dd,cust.mm,cust.yyyy);
+	    printf("| ADDRESS          :  %s \n",cust.address);
+	    printf("| LANDMARK         :  %s \n",cust.landmark);
+	    printf("===============================================\n");
+	    printf("\n\n\n");
 
-    fclose(fc);
+	}
+	fclose(fc);
+    }
     returnfunc();
 }
 
