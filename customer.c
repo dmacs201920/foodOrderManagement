@@ -71,548 +71,558 @@ void vegetarian(void)
     printf("\n\n");
     system("clear");
     vmenu=fopen("vegmenu.txt","rt");
-    while((v=getc(vmenu))!=EOF)
+    if(vmenu==NULL)
     {
-	printf("%c",v);
-    }
-    fclose(vmenu);
-    printf("\n\nEnter What You Want :");
-    printf("\n\n");
-    scanf("%d",&choice);
-    if(choice==1)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 140*(quantity);
-	char a[30]="Burger                ";
-	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+(140*quantity);
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=140*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("\n");
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==2)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 160*(quantity);
-	char a[30]="Noodles               ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+160*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=160*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==3)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 150*(quantity);
-	char a[30]="Sandwich              ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+150*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=150*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==4)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 220*(quantity);
-	char a[30]="Panner Munchurian     ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+220*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=220*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==5)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 200*(quantity);
-	char a[30]="Mushroom  Munchurian  ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=200*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-    else if(choice==6)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 230*(quantity);
-	char a[30]="Babycorn  Munchurian  ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+230*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=230*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("\n");
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==7)
-    { 
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 180*(quantity);
-	char a[30]="Vegetable  Munchurian ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+180*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=180*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==8)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 210*(quantity);
-	char a[30]="Methichaman (special) ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+210*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=210*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==9)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 500*(quantity);
-	char a[30]="Andhra Panner Biriyani";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+500*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=500*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==10)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 450*(quantity);
-	char a[30]="Mushroom  Biriyani    ";
-	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+450*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=450*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-    else if(choice==11)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 550*(quantity);
-	char a[30]="Mixed  Veg  Biriyani  ";
-       	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+550*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=550*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-    else if(choice==12)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 100*(quantity);
-	char a[30]="Salads                ";
-	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+100*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=100*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==13)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 120*(quantity);
-	char a[30]="Ice  Cream            ";
-	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+120*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=120*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==14)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 50*(quantity);
-	char a[30]="Bervareges             ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+50*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=50*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==15)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 200*(quantity);
-	char a[30]="South Indian Thaali   ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=200*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==16)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 250*(quantity);
-	char a[30]="North Indian Thaali   ";
- 	if(c.order[choice-1].flag==1)
-	{
-	    c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
-	    c.order[choice-1].cost=c.order[choice-1].cost+250*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice-1].item_name,a);
-	    c.order[choice-1].quantity=quantity;
-	    c.order[choice-1].cost=250*quantity;
-	    c.order[choice-1].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    vegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-    else if(choice==17)
-    {
-	system("clear");
+	printf("ERROR not able to open the file... ");
+	getchar();
+	getchar();
 	customer();
     }
     else
     {
-	printf("Wrong Input! Re-enter THe Correct Option\n\n");
-	if(getchar())
-	    vegetarian();
+	while((v=getc(vmenu))!=EOF)
+	{
+	    printf("%c",v);
+	}
+	fclose(vmenu);
+	printf("\n\nEnter What You Want :");
+	printf("\n\n");
+	scanf("%d",&choice);
+	if(choice==1)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 140*(quantity);
+	    char a[30]="Burger                ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+(140*quantity);
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=140*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("\n");
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==2)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 160*(quantity);
+	    char a[30]="Noodles               ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+160*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=160*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==3)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 150*(quantity);
+	    char a[30]="Sandwich              ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+150*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=150*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==4)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 220*(quantity);
+	    char a[30]="Panner Munchurian     ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+220*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=220*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==5)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 200*(quantity);
+	    char a[30]="Mushroom  Munchurian  ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=200*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+	else if(choice==6)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 230*(quantity);
+	    char a[30]="Babycorn  Munchurian  ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+230*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=230*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("\n");
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==7)
+	{ 
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 180*(quantity);
+	    char a[30]="Vegetable  Munchurian ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+180*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=180*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==8)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 210*(quantity);
+	    char a[30]="Methichaman (special) ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+210*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=210*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==9)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 500*(quantity);
+	    char a[30]="Andhra Panner Biriyani";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+500*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=500*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==10)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 450*(quantity);
+	    char a[30]="Mushroom  Biriyani    ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+450*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=450*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+	else if(choice==11)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 550*(quantity);
+	    char a[30]="Mixed  Veg  Biriyani  ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+550*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=550*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+	else if(choice==12)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 100*(quantity);
+	    char a[30]="Salads                ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+100*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=100*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==13)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 120*(quantity);
+	    char a[30]="Ice  Cream            ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+120*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=120*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==14)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 50*(quantity);
+	    char a[30]="Bervareges             ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+50*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=50*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==15)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 200*(quantity);
+	    char a[30]="South Indian Thaali   ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+200*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=200*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==16)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 250*(quantity);
+	    char a[30]="North Indian Thaali   ";
+	    if(c.order[choice-1].flag==1)
+	    {
+		c.order[choice-1].quantity=c.order[choice-1].quantity+quantity;
+		c.order[choice-1].cost=c.order[choice-1].cost+250*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice-1].item_name,a);
+		c.order[choice-1].quantity=quantity;
+		c.order[choice-1].cost=250*quantity;
+		c.order[choice-1].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		vegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+	else if(choice==17)
+	{
+	    system("clear");
+	    customer();
+	}
+	else
+	{
+	    printf("Wrong Input! Re-enter THe Correct Option\n\n");
+	    if(getchar())
+		vegetarian();
+	}
     }
 }
 
@@ -630,8 +640,6 @@ void vegetarian(void)
 
 void nonvegetarian(void)
 { 
-
-
     int  choice;
     int again;
     int quantity;
@@ -641,553 +649,560 @@ void nonvegetarian(void)
     printf("\n\n");
     system("clear");
     nmenu = fopen("nonvegmenu.txt","rt");
-    while((n=getc(nmenu))!=EOF)
+    if(nmenu==NULL)
     {
-	printf("%c",n);
-    }
-    printf("\n\nEnter What You Want :");
-    printf("\n\n");
-    scanf("%d",&choice);
-//    initialize();
-
-    if(choice==1)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 220*(quantity);
-	char a[30]="Chilli  Chicken       ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+220*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=220*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-    else if(choice==2)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 250*(quantity);
-	char a[30]="Chicken  Lolipop      ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+250*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=250*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==3)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 180*(quantity);
-	char a[30]="Chicken  Munchurian   ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+180*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=180*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==4)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 50*(quantity);
-	char a[30]="Omlet                 ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=50*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==5)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 150*(quantity);
-	char a[30]="Egg  Fried  Rice      ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=150*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==6)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 200*(quantity);
-	char a[30]="Chicken  Fried  Rice  ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=200*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-
-    if(choice==7)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 350*(quantity);
-	char a[30]="Prawns  Biriyani      ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=350*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-
-    else if(choice==8)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 450*(quantity);
-	char a[30]="Chicken Moghalai Biriyani";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+450*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=450*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("\n");
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==9)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 500*(quantity);
-	char a[30]="Mixed Moghalai Biriyani";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+500*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=500*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==10)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 400*(quantity);
-	char a[30]="Fish  Biriyani        ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+400*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=400*quantity;
-	    c.order[choice+15].flag=1;
-	}       
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==11)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 150*(quantity);
-	char a[30]="Dry  Chicken          ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=150*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==12)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 200*(quantity);
-	char a[30]="Gravy  Chicken        ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=200*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-    else if(choice==13)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 110*(quantity);
-	char a[30]="Chicken  Biriyani     ";
-  	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+110*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=110*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-
-    }
-    else if(choice==14)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 50*(quantity);
-	char a[30]="Beverages             ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=50*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	printf("\n");
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==15)
-    {
-	printf("Quantity :");
-	scanf("%d",&quantity);
-	total=total + 100*(quantity);
-	char a[30]="Ice Cream             ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+100*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=100*quantity;
-	    c.order[choice+15].flag=1;
-	} 
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==16)
-    {
-	printf("Quantity :  ");
-	scanf("%d",&quantity);
-	total=total + 350*(quantity);
-	char a[30]="Indian  Thaali        ";
- 	if(c.order[choice+15].flag==1)
-	{
-	    c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
-	    c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
-	}
-	else
-	{
-	    strcpy(c.order[choice+15].item_name,a);
-	    c.order[choice+15].quantity=quantity;
-	    c.order[choice+15].cost=350*quantity;
-	    c.order[choice+15].flag=1;
-	}
-	printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
-	scanf("%d",&again);
-	if(again==1)
-	{
-	    printf("\n\n");
-	    system("clear");
-	    nonvegetarian();
-	}
-	else if(again==2)
-	{
-	    printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
-	    details(total);
-	}
-    }
-    else if(choice==17)
-    {
-	system("clear");
+	printf("ERROR cant open the file");
+	getchar();
+	getchar();
 	customer();
     }
     else
     {
-	printf("Wrong Input! Re-enter THe Correct Option\n\n");
-	nonvegetarian();
+	while((n=getc(nmenu))!=EOF)
+	{
+	    printf("%c",n);
+	}
+	printf("\n\nEnter What You Want :");
+	printf("\n\n");
+	scanf("%d",&choice);
+	if(choice==1)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 220*(quantity);
+	    char a[30]="Chilli  Chicken       ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+220*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=220*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+	else if(choice==2)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 250*(quantity);
+	    char a[30]="Chicken  Lolipop      ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+250*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=250*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==3)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 180*(quantity);
+	    char a[30]="Chicken  Munchurian   ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+180*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=180*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==4)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 50*(quantity);
+	    char a[30]="Omlet                 ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=50*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==5)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 150*(quantity);
+	    char a[30]="Egg  Fried  Rice      ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=150*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==6)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 200*(quantity);
+	    char a[30]="Chicken  Fried  Rice  ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=200*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+
+	if(choice==7)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 350*(quantity);
+	    char a[30]="Prawns  Biriyani      ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=350*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+
+	else if(choice==8)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 450*(quantity);
+	    char a[30]="Chicken Moghalai Biriyani";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+450*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=450*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("\n");
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==9)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 500*(quantity);
+	    char a[30]="Mixed Moghalai Biriyani";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+500*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=500*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==10)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 400*(quantity);
+	    char a[30]="Fish  Biriyani        ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+400*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=400*quantity;
+		c.order[choice+15].flag=1;
+	    }       
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==11)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 150*(quantity);
+	    char a[30]="Dry  Chicken          ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+150*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=150*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==12)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 200*(quantity);
+	    char a[30]="Gravy  Chicken        ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+200*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=200*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+	else if(choice==13)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 110*(quantity);
+	    char a[30]="Chicken  Biriyani     ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+110*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=110*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+
+	}
+	else if(choice==14)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 50*(quantity);
+	    char a[30]="Beverages             ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+50*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=50*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    printf("\n");
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==15)
+	{
+	    printf("Quantity :");
+	    scanf("%d",&quantity);
+	    total=total + 100*(quantity);
+	    char a[30]="Ice Cream             ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+100*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=100*quantity;
+		c.order[choice+15].flag=1;
+	    } 
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==16)
+	{
+	    printf("Quantity :  ");
+	    scanf("%d",&quantity);
+	    total=total + 350*(quantity);
+	    char a[30]="Indian  Thaali        ";
+	    if(c.order[choice+15].flag==1)
+	    {
+		c.order[choice+15].quantity=c.order[choice+15].quantity+quantity;
+		c.order[choice+15].cost=c.order[choice+15].cost+350*quantity;
+	    }
+	    else
+	    {
+		strcpy(c.order[choice+15].item_name,a);
+		c.order[choice+15].quantity=quantity;
+		c.order[choice+15].cost=350*quantity;
+		c.order[choice+15].flag=1;
+	    }
+	    printf("Press 1 To Order Again :\nPress 2 To Get Your Total:\n\nEnter Your Choice :");
+	    scanf("%d",&again);
+	    if(again==1)
+	    {
+		printf("\n\n");
+		system("clear");
+		nonvegetarian();
+	    }
+	    else if(again==2)
+	    {
+		printf("Your Total Amount Is : Rs. %.2lf\n\n",total);
+		details(total);
+	    }
+	}
+	else if(choice==17)
+	{
+	    system("clear");
+	    customer();
+	}
+	else
+	{
+	    printf("Wrong Input! Re-enter THe Correct Option\n\n");
+	    nonvegetarian();
+	}
     }
 }
-
 
 
 
@@ -1236,8 +1251,6 @@ void details(double tf)
     printf(" Your Entered Details Are --->\n");
 
     printf("    -->Total       :  %lf\n\n    -->First Name  :  %s\n\n    -->Last Name   :  %s\n\n    -->Phone       :  %lld\n\n    -->Address     :  %s\n\n    -->Landmark    :  %s\n\n",cust.total,cust.name,cust.name2,cust.ph,cust.address,cust.landmark);
-    //printf("Date is: %d/%d/%d\n",t->tm_mday, t->tm_mon+1, t->tm_year+1900);
-    //printf("Time is: %d:%d:%d\n",t->tm_hour, t->tm_min, t->tm_sec);
     printf("\n\n\n");
     printf("                       *********************************************************************************************\n");
     printf("                                             Your Order Will Be At Your Door In 30 minutes.\n");
@@ -1246,8 +1259,18 @@ void details(double tf)
 
     FILE *fcust;
     fcust = fopen("order.txt","a");
-    fwrite(&cust,sizeof(cust),1,fcust);
-    fclose(fcust);
+    if(fcust==NULL)
+    {
+	printf("ERROR unable to open the file to print..");
+	getchar();
+	getchar();
+	customer();
+    }
+    else
+    {
+	fwrite(&cust,sizeof(cust),1,fcust);
+	fclose(fcust);
+    }
     printf("Press Any To The MainMenu.");
     getchar();
     if(getchar())
@@ -1280,66 +1303,74 @@ void deleteorder(void)
 	scanf("%d",&d);
 	getchar();
 	temp1=fopen("order.txt","r");
-	rewind(temp1);
-	while(fread(&c,sizeof(c),1,temp1)==1)
+	if(temp1==NULL)
 	{
-	    if(c.id==d)
-	    {
-		printf("\n\n");
-		printf("                               .....................The Order Is Available....................\n\n");
-		printf("               Customer Name Is %s\n\n",c.name);
-		printf("               Customer's Date  OF Order Is %d/%d/%d\n\n",c.dd,c.mm,c.yyyy);
-		findrecord='t';
-		break;
-	    }
+	    printf("Cannot open the file");
+	    getchar();
+	    getchar();
+	    order();
 	}
-	if(findrecord!='t')
+	else
 	{
-	    printf("                                    .........................NO ORDER IS FOUND PLEASE MODIFY THE SEARCH..........................\n\n");
-	    printf("Do You Want To Delete Another  Record ? (y/n) ");
-	    scanf("%c",&another);
-	}
-	if(findrecord=='t')
-	{
-	    printf("Do You Want To Cancle The Order ? (y/n) ");
-	    scanf("%c",&choice);
-	    if(choice=='n')
+	    rewind(temp1);
+	    while(fread(&c,sizeof(c),1,temp1)==1)
 	    {
-		printf("Do You Want To Delete Another  Record ? (y/n) ");
-		getchar();
-		scanf("%c",&another);
-	    }
-	    if(choice=='y')
-	    {
-		temp2=fopen("test.txt","w");
-		rewind(temp1);
-		rewind(temp2);
-		while(fread(&c,sizeof(c),1,temp1)==1)
+		if(c.id==d)
 		{
-		    if(c.id!=d)
-		    {
-			fwrite(&c,sizeof(c),1,temp2);
-		    }
+		    printf("\n\n");
+		    printf("                               .....................The Order Is Available....................\n\n");
+		    printf("               Customer Name Is %s\n\n",c.name);
+		    printf("               Customer's Date  OF Order Is %d/%d/%d\n\n",c.dd,c.mm,c.yyyy);
+		    findrecord='t';
+		    break;
 		}
-		fclose(temp1);
-		fclose(temp2);
-		remove("order.txt");
-		rename("test.txt","order.txt");
-		temp1=fopen("order.txt","a");
-		printf("        ................THE RECORD IS SUCCESSFULLY DELETED.............\n\n");
-		printf("        Delete Another Record ? (y/n) : ");
-		getchar();
+	    }
+	    if(findrecord!='t')
+	    {
+		printf("                                    .........................NO ORDER IS FOUND PLEASE MODIFY THE SEARCH..........................\n\n");
+		printf("Do You Want To Delete Another  Record ? (y/n) ");
 		scanf("%c",&another);
-		if(another!='n')
+	    }
+	    if(findrecord=='t')
+	    {
+		printf("Do You Want To Cancle The Order ? (y/n) ");
+		scanf("%c",&choice);
+		if(choice=='n')
+		{
+		    printf("Do You Want To Delete Another  Record ? (y/n) ");
 		    getchar();
+		    scanf("%c",&another);
+		}
+		if(choice=='y')
+		{
+		    temp2=fopen("test.txt","w");
+		    rewind(temp1);
+		    rewind(temp2);
+		    while(fread(&c,sizeof(c),1,temp1)==1)
+		    {
+			if(c.id!=d)
+			{
+			    fwrite(&c,sizeof(c),1,temp2);
+			}
+		    }
+		    fclose(temp1);
+		    fclose(temp2);
+		    remove("order.txt");
+		    rename("test.txt","order.txt");
+		    temp1=fopen("order.txt","a");
+		    printf("        ................THE RECORD IS SUCCESSFULLY DELETED.............\n\n");
+		    printf("        Delete Another Record ? (y/n) : ");
+		    getchar();
+		    scanf("%c",&another);
+		    if(another!='n')
+			getchar();
+		}
 	    }
 	}
+	getchar();
+	order();
     }
-    getchar();
-    order();
 }
-
-
 //-------------------------------------------------------------------------------------------------
 
 
@@ -1359,6 +1390,7 @@ int viewdetails(void)
 	printf("\t press ENTER to go back ...");
 	getchar();
 	getchar();
+	order();
     }
     else
     {

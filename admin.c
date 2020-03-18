@@ -120,35 +120,45 @@ void addrecord(void)
 {
     system("clear");
     fp=fopen("record.txt","a");
-    if(getdata()==1)
+    if(fp==NULL)
     {
-	fseek(fp,0,SEEK_END);
-	fwrite(&e,sizeof(e),1,fp);
-	fclose(fp);
-	printf("\n\n");
-	printf("The Record Is Successfully Saved ! !\n\n");
-	printf("Save any more? (y/n): ");
+	printf("Cannot open the file");
 	getchar();
-	if(getchar()=='n')
-	{
-	    getchar();
-	    administration();
-	}
-	else
-	    system("clear");
-	addrecord();
+	getchar();
+	administration();
     }
     else
     {
-	printf("Save any other record? (y/n): ");
-	if(getchar()=='n')
+	if(getdata()==1)
 	{
+	    fseek(fp,0,SEEK_END);
+	    fwrite(&e,sizeof(e),1,fp);
+	    fclose(fp);
+	    printf("\n\n");
+	    printf("The Record Is Successfully Saved ! !\n\n");
+	    printf("Save any more? (y/n): ");
 	    getchar();
-	    administration();
+	    if(getchar()=='n')
+	    {
+		getchar();
+		administration();
+	    }
+	    else
+		system("clear");
+	    addrecord();
 	}
 	else
-	    system("clear");
-	addrecord();
+	{
+	    printf("Save any other record? (y/n): ");
+	    if(getchar()=='n')
+	    {
+		getchar();
+		administration();
+	    }
+	    else
+		system("clear");
+	    addrecord();
+	}
     }
 }
 
@@ -162,17 +172,27 @@ void addrecord(void)
 int checkid(int c)  //check whether the record is exist in list or not
 {
     dp=fopen("record.txt","r");
-    rewind(dp);
-    while(fread(&e,sizeof(e),1,dp)==1)
+    if(dp==NULL)
     {
-	if(e.id==c)
-	{
-	    fclose(dp);
-	    return 0;  //returns 0 if employee exits
-	}
+	printf("cannot open the file");
+	getchar();
+	getchar();
+	administration();
     }
-    fclose(dp);
-    return 1; //return 1 if it not
+    else
+    {
+	rewind(dp);
+	while(fread(&e,sizeof(e),1,dp)==1)
+	{
+	    if(e.id==c)
+	    {
+		fclose(dp);
+		return 0;  //returns 0 if employee exits
+	    }
+	}
+	fclose(dp);
+	return 1; //return 1 if it not
+    }
 }
 
 
@@ -238,62 +258,79 @@ void deleterecord(void)
 	scanf("%d",&d);
 	getchar();
 	fp=fopen("record.txt","a+");
-	rewind(fp);
-	while(fread(&e,sizeof(e),1,fp)==1)
+	if(fp==NULL)
 	{
-	    if(e.id==d)
-	    {
-		printf("\n\n");
-		printf("...........................The Record is available............................\n\n\n");
-		printf("       ID               :  %d\n\n",e.id);
-		printf("       Name             :  %s\n\n",e.name);
-		printf("       Date OF Birth    :  %d/%d/%d\n\n",e.dd,e.mm,e.yyyy);
-		printf("       Year Of Joining  :  %d\n\n",e.YOJ);
-		printf("       Department       :  %s\n\n",e.department);
-		printf("       Salary           :  %f\n\n",e.salary);
-		findrecord='t';
-		break;
-	    }
+	    printf("cannot open the file");
+	    getchar();
+	    getchar();
+	    administration();
 	}
-	if(findrecord!='t')
+	else
 	{
-	    printf("                                    .........................NO RECORD IS FOUND PLEASE MODIFY THE SEARCH..........................\n\n");
-	    printf("Do You Want To Delete Another  Record ? (y/n) ");
-	    scanf("%c",&another);
-	}
-	if(findrecord=='t')
-	{
-	    printf("Do You Want To Delete THe Record ? (y/n) ");
-	    scanf("%c",&choice);
-	    if(choice=='n')
+	    rewind(fp);
+	    while(fread(&e,sizeof(e),1,fp)==1)
 	    {
-		printf("Do You Want To Delete Another  Record ? (y/n) ");
-		getchar();
-		scanf("%c",&another);
-	    }
-	    if(choice=='y')
-	    {
-		ft=fopen("test1.txt","w");  
-		rewind(fp);
-		rewind(ft);
-		while(fread(&e,sizeof(e),1,fp)==1)
+		if(e.id==d)
 		{
-		    if(e.id!=d)
-		    {
-			fwrite(&e,sizeof(e),1,ft);
-		    }                             
+		    printf("\n\n");
+		    printf("...........................The Record is available............................\n\n\n");
+		    printf("       ID               :  %d\n\n",e.id);
+		    printf("       Name             :  %s\n\n",e.name);
+		    printf("       Date OF Birth    :  %d/%d/%d\n\n",e.dd,e.mm,e.yyyy);
+		    printf("       Year Of Joining  :  %d\n\n",e.YOJ);
+		    printf("       Department       :  %s\n\n",e.department);
+		    printf("       Salary           :  %f\n\n",e.salary);
+		    findrecord='t';
+		    break;
 		}
-		fclose(ft);
-		fclose(fp);
-		remove("record.txt");
-		rename("test1.txt","record.txt"); 
-		fp=fopen("record.txt","r");    
-		printf("        ................THE RECORD IS SUCCESSFULLY DELETED.............\n\n");
-		printf("        Delete Another Record ? (y/n) : ");
-		getchar();
+	    }
+	    if(findrecord!='t')
+	    {
+		printf("                                    .........................NO RECORD IS FOUND PLEASE MODIFY THE SEARCH..........................\n\n");
+		printf("Do You Want To Delete Another  Record ? (y/n) ");
 		scanf("%c",&another);
-		if(another!='n')
-		getchar();
+	    }
+	    if(findrecord=='t')
+	    {
+		printf("Do You Want To Delete THe Record ? (y/n) ");
+		scanf("%c",&choice);
+		if(choice=='n')
+		{
+		    printf("Do You Want To Delete Another  Record ? (y/n) ");
+		    getchar();
+		    scanf("%c",&another);
+		}
+		if(choice=='y')
+		{
+		    ft=fopen("test1.txt","w");  
+		    if(ft==NULL)
+		    {
+			printf("cannot open the file");
+			getchar();
+			getchar();
+			administration();
+		    }
+		    rewind(fp);
+		    rewind(ft);
+		    while(fread(&e,sizeof(e),1,fp)==1)
+		    {
+			if(e.id!=d)
+			{
+			    fwrite(&e,sizeof(e),1,ft);
+			}                             
+		    }
+		    fclose(ft);
+		    fclose(fp);
+		    remove("record.txt");
+		    rename("test1.txt","record.txt"); 
+		    fp=fopen("record.txt","r");    
+		    printf("        ................THE RECORD IS SUCCESSFULLY DELETED.............\n\n");
+		    printf("        Delete Another Record ? (y/n) : ");
+		    getchar();
+		    scanf("%c",&another);
+		    if(another!='n')
+			getchar();
+		}
 	    }
 	}
     }
@@ -324,6 +361,13 @@ void searchrecord(void)
     printf("                  Enter Your Choice--->");
     getchar();
     fp=fopen("record.txt","r"); 
+    if(fp==NULL)
+    {
+	printf("cannot open the file");
+	getchar();
+	getchar();
+	administration();
+    }
     rewind(fp);  
     switch(getchar())
     {
@@ -419,6 +463,13 @@ void viewrecord(void)
 {
     system("clear");
     fp=fopen("record.txt","r");
+    if(fp==NULL)
+    {
+	printf("cannot open the file");
+	getchar();
+	getchar();
+	administration();
+    }
     printf("                       ======================================================================================                 \n");
     printf("                       ||          ********************** Employee Details**********************           ||                 \n");
     printf("                       ======================================================================================                 \n");
@@ -579,6 +630,13 @@ void modifyrecord(void)
 	scanf("%d",&d);
 	getchar();
 	fp=fopen("record.txt","a+");
+	if(fp==NULL)
+	{
+	    printf("cannot open the file");
+	    getchar();
+	    getchar();
+	    administration();
+	}
 	rewind(fp);
 	while(fread(&e,sizeof(e),1,fp)==1)
 	{
@@ -616,6 +674,13 @@ void modifyrecord(void)
 	    if(choice=='y')
 	    {
 		ft=fopen("test1.txt","w");  
+		if(ft==NULL)
+		{
+		    printf("cannot open the file");
+		    getchar();
+		    getchar();
+		    administration();
+		}
 		rewind(fp);
 		rewind(ft);
 		while(fread(&e,sizeof(e),1,fp)==1)
