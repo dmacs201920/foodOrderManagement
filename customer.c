@@ -22,6 +22,7 @@ double total=0;
 
 
 
+//written by sandeep.s.s
 void initialize(void)
 {
     for(int i=0;i<32;i++)
@@ -58,6 +59,7 @@ int getid(int id)
 //-------------------------------------------------------------------------------------------------
 
 
+//written by A.Arun
 void vegetarian(void)
 {
     int choice;
@@ -624,6 +626,7 @@ void vegetarian(void)
 
 
 
+//written by A.Arun
 
 void nonvegetarian(void)
 { 
@@ -1196,6 +1199,7 @@ void nonvegetarian(void)
 
 
 
+//written by sandeep.s.s
 void details(double tf)
 {
     cust=c;
@@ -1261,6 +1265,7 @@ void details(double tf)
 
 
 
+//written by A.Arun
 void deleteorder(void)
 {
     int d;
@@ -1338,6 +1343,7 @@ void deleteorder(void)
 //-------------------------------------------------------------------------------------------------
 
 
+//written by sandeep.s.s
 int viewdetails(void)
 {
     int oid;

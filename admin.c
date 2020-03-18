@@ -17,7 +17,7 @@ int t;
 
 //-------------------------------------------------------------------------------------------------
 
-
+//Written by sandeep.s.s
 
 ssize_t getpasswd (char **pw, size_t sz, int mask, FILE *fp)
 {
@@ -89,7 +89,7 @@ ssize_t getpasswd (char **pw, size_t sz, int mask, FILE *fp)
 
 
 //-------------------------------------------------------------------------------------------------
-
+//written by sandeep.s.s
 int Password(char passw[])
 {
     char password[15]="maharshi...";
@@ -115,6 +115,7 @@ int Password(char passw[])
 
 
 
+//written by sandeep.s.s
 void addrecord(void)
 {
     system("clear");
@@ -157,6 +158,7 @@ void addrecord(void)
 
 
 
+//written by sandeep.s.s
 int checkid(int c)  //check whether the record is exist in list or not
 {
     dp=fopen("record.txt","r");
@@ -177,6 +179,7 @@ int checkid(int c)  //check whether the record is exist in list or not
 //-------------------------------------------------------------------------------------------------
 
 
+//written by sandeep.s.s
 
 int getdata()
 {
@@ -220,6 +223,7 @@ int getdata()
 
 
 
+//written by A.Arun
 void deleterecord(void)
 {
     int d;
@@ -308,6 +312,7 @@ void deleterecord(void)
 
 
 
+//written by A.Arun
 void searchrecord(void)
 {
     system("clear");
@@ -409,6 +414,7 @@ void searchrecord(void)
 //-------------------------------------------------------------------------------------------------
 
 
+//written by sandeep.s.s
 void viewrecord(void)
 {
     system("clear");
@@ -440,6 +446,7 @@ void viewrecord(void)
 //-------------------------------------------------------------------------------------------------
 
 
+//written by sandeep.s.s
 void returnfunc(void)
 {
     {
@@ -459,6 +466,7 @@ void returnfunc(void)
 
 
 
+//written by sandeep.s.s
 void orderstoday(void)
 {
     system("clear");
@@ -501,6 +509,7 @@ void orderstoday(void)
 
 
 
+//written by sandeep.s.s
 int getmdata(void)
 {
     char choice;
@@ -555,6 +564,7 @@ int getmdata(void)
 //-------------------------------------------------------------------------------------------------
 
 
+//written by sandeep.s.s
 void modifyrecord(void)
 {
     int d;

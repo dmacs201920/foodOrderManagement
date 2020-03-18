@@ -6,6 +6,8 @@
                                 				  DATE:20/1/2020
 */
 #include"header.h"
+//Vegmenu and nonvegmenu written by A.Arun
+//written by sandeep.s.s
 void main()
 {
     FILE *f=stdin;
@@ -69,6 +71,8 @@ void main()
     }
 }
 
+//written by A.Arun
+
 void administration(void)
 {
     system("clear");
@@ -111,6 +115,8 @@ void administration(void)
     }
 }
 
+//written by sandeep.s.s
+//written by A.Arun
 
 void customer(void)
 {
@@ -153,6 +159,7 @@ void customer(void)
     }
 }
 
+//written by A.Arun
 void order(void)
 {
     int view;
